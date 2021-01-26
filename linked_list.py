@@ -46,12 +46,19 @@ class Linked_List:
             
         node.next = n1
         prev.next = node    
- 
-                      
+    #Removing the particular node in the LinkedList
+    def remove(self,data):
+        if not self.head:
+            raise Exception("List is empty..")
+        n = self.head
+        prev = None
+        while n.data != data:
+            prev = n
+            n = n.next
+        prev.next = n.next #linking the previous node to next node of the current node(n)..
             
             
-        
-        
+            
     #Adding __iter__ () to traverse the LinkedlList using for loop..
     def __iter__(self):
         node = self.head
@@ -85,6 +92,7 @@ ll.add_first(Node("0"))
 ll.add_end(Node("e"))
 ll.add_after("b",Node("B"))
 ll.add_before("b",Node('17'))
+ll.remove("b")
 
 print(ll) 
 print()  
