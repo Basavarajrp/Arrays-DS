@@ -21,6 +21,36 @@ class Linked_List:
         while n1.next is not None:
             n1 = n1.next
         n1.next = node    
+    
+    #Insertation of the node after the target node. Time complexity(O(n))    
+    def add_after(self,target,node):
+        if self.head is None:
+            raise Exception('List is empty..')
+        n1 = self.head
+        while n1.data != target:
+            n1 = n1.next
+        node.next = n1.next
+        n1.next = node
+            
+             
+    
+    #Insertation of the node before the target node. Time complexity(O(n))
+    def add_before(self,target,node):
+        if self.head is None:
+            raise Exception("List is empty..")
+        n1 = self.head
+        prev = None  #keps track of the previous node..
+        while n1.data != target:
+            prev = n1
+            n1 = n1.next
+            
+        node.next = n1
+        prev.next = node    
+ 
+                      
+            
+            
+        
         
     #Adding __iter__ () to traverse the LinkedlList using for loop..
     def __iter__(self):
@@ -53,6 +83,8 @@ n3.next = n4
 
 ll.add_first(Node("0"))
 ll.add_end(Node("e"))
+ll.add_after("b",Node("B"))
+ll.add_before("b",Node('17'))
 
 print(ll) 
 print()  
